@@ -224,7 +224,7 @@ Emacs buffer are those starting with “*”					.	"
       'tabbar-selected nil
       :inherit 'tabbar-default
       :background "#f2f2f6"
-      :foreground "red"
+      :foreground "#ff00ff"
       :box nil)
 
 (set-face-attribute
@@ -332,7 +332,7 @@ Emacs buffer are those starting with “*”					.	"
 ;;http://www.cnblogs.com/ClarkChan/archive/2007/08/12/852616.html color to rgb map
 
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#fffff0");ivory
+(set-face-background 'hl-line "#f0fff0");ivory
 
 (set-face-foreground 'hl-line "#ff0000")
 (set-face-underline-p 'hl-line t)
