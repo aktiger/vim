@@ -120,7 +120,7 @@
 (icomplete-mode 1)
 (define-key minibuffer-local-completion-map (kbd "SPC") 'minibuffer-complete-word)
 
-(global-hl-line-mode 1);;高亮当前行
+;(global-hl-line-mode 1);;高亮当前行
 
 ;;;;;;;;;;;;;;;;;启动时最大化;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'maxframe)
@@ -316,4 +316,10 @@ Emacs buffer are those starting with “*”					.	"
 ;      display-time-24hr-format t)
 ;(display-time)
 
+;;http://www.cnblogs.com/ClarkChan/archive/2007/08/12/852616.html color to rgb map
 
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#fffff0");ivory
+
+(set-face-foreground 'hl-line "#ff0000")
+(set-face-underline-p 'hl-line t)
