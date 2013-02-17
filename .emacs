@@ -7,6 +7,8 @@
 (when (fboundp 'global-font-lock-mode)
   (global-font-lock-mode t))
 
+(set-language-environment 'utf-8)
+
 ;; enable visual feedback on selections
 ;(setq transient-mark-mode t)
 
@@ -204,35 +206,46 @@ Emacs buffer are those starting with “*”					.	"
 
 (global-set-key [(meta p)] 'tabbar-backward)
 (global-set-key [(meta n)] 'tabbar-forward)
+;; example tabbar coloring code...
+  (set-face-attribute
+      'tabbar-default nil
+         :background "gray80"
+	 :family "Bitstream Vera Sans Mono"
+	 :foreground "gray30"
+	 :height 0.75)
+  (set-face-attribute
+      'tabbar-unselected nil
+      :inherit 'tabbar-default
+      :background "gray85"
+      :foreground "gray30"
+      :box nil)
 
-;; 设置tabbar外观
-;; 设置默认主题: 字体, 背景和前景颜色，大小
-;(set-face-attribute 'tabbar-default-face nil
-;		    :family "DejaVu Sans Mono"
-;		    :background "gray80"
-;		    :foreground "gray30"
-;		    :height 1.0
-;		    )
-;; 设置左边按钮外观：外框框边大小和颜色
-;(set-face-attribute 'tabbar-button-face nil
-;		    :inherit 'tabbar-default
-;		    :box '(:line-width 1 :color "yellow70")
-;		    )
-;; 设置当前tab外观：颜色，字体，外框大小和颜色
-;(set-face-attribute 'tabbar-selected-face nil
-;		    :inherit 'tabbar-default
-;		    :foreground "DarkGreen"
-;		    :background "LightGoldenrod"
-;		    :box '(:line-width 2 :color "DarkGoldenrod")
-;		    :overline "black"
-;		    :underline "black"
-;		    :weight 'bold
-;		    )
-;; 设置非当前tab外观：外框大小和颜色
-;(set-face-attribute 'tabbar-unselected-face nil
-;		    :inherit 'tabbar-default
-;		    :box '(:line-width 20 :color "#00B2BF")
-;		    )
+  (set-face-attribute
+      'tabbar-selected nil
+      :inherit 'tabbar-default
+      :background "#f2f2f6"
+      :foreground "red"
+      :box nil)
+
+(set-face-attribute
+      'tabbar-button nil
+      :inherit 'tabbar-default
+      :box '(
+	     :line-width 1
+	     :color "gray72"
+	     :style released-button))
+
+(set-face-attribute
+      'tabbar-separator nil
+         :height 1
+	 :foreground "red")
+
+;(setq tabbar-buffer-groups-function (lambda () (list "All buffers")))
+(setq tabbar-cycling-scope nil)
+(setq tabbar-home-button (quote (("[Home]") "[x]")))
+(setq tabbar-separator (quote (" | ")))
+
+
 
 ;***********************************************************************
 ;(set-face-background 'default "gainsboro");背景设定
