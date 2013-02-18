@@ -7,7 +7,7 @@
 (when (fboundp 'global-font-lock-mode)
   (global-font-lock-mode t))
 
-(set-language-environment 'utf-8)
+
 
 ;; enable visual feedback on selections
 ;(setq transient-mark-mode t)
@@ -36,10 +36,12 @@
         (:eval (mode-line-mode-name))
         mode-line-process
         minor-mode-alist
-        #("%n" 0 2 (help-echo "mouse-2: widen" local-map (keymap ...)))
+        #("%n" 0 2 (help-echo "mouse-2: widen" local-map (keymap	.	..)))
         ")%] "
-        (-3 . "%P")
+        (-3								.	"%P")
         ;;   "-%-"
+	" "
+        global-mode-string
 	" "
         (:eval (substring
                 (system-name) 0 (string-match "\\..+" (system-name))))
@@ -49,7 +51,7 @@
           (help-echo
            "mouse-1: select window, mouse-2: delete others ..."))
         (line-number-mode " Line %l ")
-        global-mode-string
+;        global-mode-string
         
         )))
 
@@ -350,8 +352,25 @@ Emacs buffer are those starting with “*”					.	"
  ;; If there is more than one, they won't work right.
  )
 ;;set coding system
+;(set-language-environment 'utf-8)
+;(setq-default pathname-coding-system 'utf-8)
+;(setq file-name-coding-system 'utf-8)
+
+
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+;(prefer-coding-system 'utf-8)
+
+(set-language-environment 'Chinese-GB)
+(set-keyboard-coding-system 'utf-8)
+(set-clipboard-coding-system 'euc-cn)
+(set-terminal-coding-system 'utf-8)
+(set-buffer-file-coding-system 'euc-cn)
+(set-selection-coding-system 'euc-cn)
+(modify-coding-system-alist 'process "*" 'utf-8)
+(setq default-process-coding-system
+                  '(euc-cn . euc-cn))
+(setq-default pathname-coding-system 'utf-8)
+
