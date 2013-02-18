@@ -92,7 +92,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-; '(column-number-mode t)
+ '(custom-enabled-themes (quote (manoj-dark)))
  '(display-time-mode t)
  '(inhibit-startup-screen t)
  '(send-mail-function (quote smtpmail-send-it))
@@ -238,12 +238,12 @@ Emacs buffer are those starting with “*”					.	"
 (set-face-attribute
       'tabbar-separator nil
          :height 1
-	 :foreground "red")
+	 :foreground "green")
 
 ;(setq tabbar-buffer-groups-function (lambda () (list "All buffers")))
 (setq tabbar-cycling-scope nil)
 (setq tabbar-home-button (quote (("[Home]") "[x]")))
-(setq tabbar-separator (quote (" | ")))
+(setq tabbar-separator (quote (" <|> ")))
 
 
 
@@ -336,3 +336,22 @@ Emacs buffer are those starting with “*”					.	"
 
 (set-face-foreground 'hl-line "#ff0000")
 (set-face-underline-p 'hl-line t)
+
+
+
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+;;set coding system
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
