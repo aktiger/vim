@@ -81,29 +81,29 @@ nmap <F2> :NERDTreeToggle<CR>
 
 "let MRU_File='~/_vim_mrc_file'
 "max mru entries in _vim_mru_files 
-let MRU_Max_Entries = 30
+"let MRU_Max_Entries = 30
 
 "to let the MRU window to use the current window
 "let MRU_Use_Current_Window = 0 
-let MRU_Window_Height = 10
+"let MRU_Window_Height = 10
 
 "close the MRU window when open one mru file, 0 will not close the window,the
 "default will close the window
-let MRU_Auto_Close = 1 
+"let MRU_Auto_Close = 1 
 
-let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|tags\|*.o\|*.out' 
+"let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|tags\|*.o\|*.out' 
 "let MRU_Include_Files = '\.c$\|\.h$' 
 
 "let mru file open in new table
 "let MRU_Open_File_Use_Tabs = 1
-map <C-m> :MRU<CR>
+"map <C-m> :MRU<CR>
 "map <leader>f :MRU<CR>
 " The ':vimgrep' command adds all the files searched to the buffer list.
 " " This also modifies the MRU list, even though the user didn't edit the
 " " files. Use the following autocmds to prevent this.
 "autocmd QuickFixCmdPre *vimgrep* let s:mru_list_locked = 1 
 "autocmd QuickFixCmdPost *vimgrep* let s:mru_list_locked = 1 
-let s:mru_list_locked = 1
+"let s:mru_list_locked = 1
 
 
 augroup filetype
