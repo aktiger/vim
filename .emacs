@@ -75,7 +75,7 @@
 
 ;open line number mode, and set the line number space to -3d,left align
 (global-linum-mode t)
-(setq linum-format "%-3d")
+(setq linum-format "%-4d")
 
 					;(setq tags-file-name "~/CVS/TAGS") ;set one TAG file
 ;(setq tags-table-list '("path1/TAGS" "path2/TAGS" "path3/TAGS"));;set several TAG files
@@ -94,7 +94,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (manoj-dark)))
+ ;; '(custom-enabled-themes (quote (tsdh-dark)))
  '(display-time-mode t)
  '(inhibit-startup-screen t)
  '(send-mail-function (quote smtpmail-send-it))
@@ -124,7 +124,6 @@
 (icomplete-mode 1)
 (define-key minibuffer-local-completion-map (kbd "SPC") 'minibuffer-complete-word)
 
-;(global-hl-line-mode 1);;高亮当前行
 
 ;;;;;;;;;;;;;;;;;启动时最大化;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'maxframe)
@@ -160,6 +159,14 @@
 (require 'dirtree)
 (autoload 'dirtree "dirtree" "Add directory to tree view" t)
 (global-set-key [f2] 'dirtree-show)
+
+;;auto-complete plugin
+(add-to-list 'load-path "/home/zhangchao08/program_files/emacs-24.2/share/emacs/site-lisp/auto-complete-1-3-1")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/home/zhangchao08/program_files/emacs-24.2/share/emacs/site-lisp/auto-complete-1-3-1/ac-dict")
+(ac-config-default)
+
+
 
 ;(global-set-key [M-left] 'windmove-left)          ; move to left windnow
 ;(global-set-key [M-right] 'windmove-right)        ; move to right window
@@ -210,15 +217,15 @@ Emacs buffer are those starting with “*”					.	"
 (global-set-key [(meta n)] 'tabbar-forward)
 ;; example tabbar coloring code...
   (set-face-attribute
-      'tabbar-default nil
-         :background "gray80"
+     'tabbar-default nil
+       :background "gray80"
 	 :family "Bitstream Vera Sans Mono"
 	 :foreground "gray30"
 	 :height 0.75)
-  (set-face-attribute
-      'tabbar-unselected nil
-      :inherit 'tabbar-default
-      :background "gray85"
+ (set-face-attribute
+   'tabbar-unselected nil
+   :inherit 'tabbar-default
+   :background "gray85"
       :foreground "gray30"
       :box nil)
 
@@ -280,7 +287,9 @@ Emacs buffer are those starting with “*”					.	"
 (setq java-mode-hook
       '(lambda ()
 	 (gtags-mode 1)))
-
+(setq asm-mode-hook
+      '(lambda ()
+	 (gtags-mode 1)))
 
 ;(add-hook 'c-mode-common-hook
 ;	            '(lambda()
@@ -333,44 +342,79 @@ Emacs buffer are those starting with “*”					.	"
 
 ;;http://www.cnblogs.com/ClarkChan/archive/2007/08/12/852616.html color to rgb map
 
-(global-hl-line-mode 1)
-(set-face-background 'hl-line "#f0fff0");ivory
+(global-hl-line-mode t)
+;(set-face-background 'hl-line "#f0fff0");ivory
+(set-face-foreground 'hl-line "dark")
+(set-face-background 'hl-line "blue")
 
-(set-face-foreground 'hl-line "#ff0000")
-(set-face-underline-p 'hl-line t)
+;(set-face-foreground 'hl-line "#ff0000")
+;(set-face-underline-p 'hl-line t)
 
 
 
 
+;;specity the load path of color them files
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;(load-theme 'zhangchao08-test-theme t)
+;(load-theme 'tango t)
+;(load-theme 'light-blue t)
+;(load-theme 'wheatgrass t)
+;(load-theme 'whiteboard t)
+;(load-theme 'tango-dark t) ;five star
+;(load-theme 'tsdh-light t)  ;this line disaperr dislike
+;(load-theme 'dichromacy t)
+;(load-theme 'misterioso t)
+;(load-theme 'adwaita t)
 
-
-(custom-set-faces
+;(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
-;;set coding system
-;(set-language-environment 'utf-8)
-;(setq-default pathname-coding-system 'utf-8)
-;(setq file-name-coding-system 'utf-8)
+; )
 
+;;set coding system
 
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-;(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
+(setq default-buffer-coding-system 'utf-8)
 (set-language-environment 'Chinese-GB)
 (set-keyboard-coding-system 'utf-8)
-(set-clipboard-coding-system 'euc-cn)
+(set-clipboard-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
-(set-buffer-file-coding-system 'euc-cn)
-(set-selection-coding-system 'euc-cn)
+(set-buffer-file-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
 (modify-coding-system-alist 'process "*" 'utf-8)
 (setq default-process-coding-system
-                  '(euc-cn . euc-cn))
+                  '(utf-8 . euc-cn))
 (setq-default pathname-coding-system 'utf-8)
 
+
+
+(require 'smart-compile)
+
+(global-set-key (kbd "<f9>") 'smart-compile)
+;(add-to-list 'smart-compile-alist
+;	     '("/home/zhangchao08/emacs/.*" . "make -C /home/zhangchao08/emacs"))
+
+(require 'protobuf-mode) 
+(require 'org-install)
+(put 'dired-find-alternate-file 'disabled nil)
+
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org$"	.	org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+
+;(set-background-color "black") ;; 使用黑色背景
+;(set-foreground-color "white") ;; 使用白色前景
+;(set-face-foreground 'region "green")  ;; 区域前景颜色设为绿色
+;(set-face-background 'region "blue") ;; 区域背景色设为蓝色
+
+;(set-face-attribute 'default nil :height 1200)
