@@ -144,7 +144,7 @@
 
 
 ;;;;;cc-mode;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "/home/zhangchao08/program_files/emacs-24.2/share/emacs/site-lisp/cc-mode-5.32.3")
+(add-to-list 'load-path "/home/zhangchao08/program_files/emacs-24-3/share/emacs/site-lisp/cc-mode-5.32.3")
 (require 'cc-mode)
 (c-set-offset 'inline-open 0)
 (c-set-offset 'friend '-)
@@ -153,7 +153,7 @@
 ;http://www.kklinux.com/html/linuxwangluojishu/linuxxitongguanliyuan/200902/28-3728.html
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(add-to-list 'load-path "/home/zhangchao08/program_files/emacs-24.2/share/emacs/site-lisp/emacs-dirtree-master")
+(add-to-list 'load-path "/home/zhangchao08/program_files/emacs-24-3/share/emacs/site-lisp/emacs-dirtree-master")
 (require 'tree-mode)
 (require 'windata)
 (require 'dirtree)
@@ -161,9 +161,9 @@
 (global-set-key [f2] 'dirtree-show)
 
 ;;auto-complete plugin
-(add-to-list 'load-path "/home/zhangchao08/program_files/emacs-24.2/share/emacs/site-lisp/auto-complete-1-3-1")
+(add-to-list 'load-path "/home/zhangchao08/program_files/emacs-24-3/share/emacs/site-lisp/auto-complete-1-3-1")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "/home/zhangchao08/program_files/emacs-24.2/share/emacs/site-lisp/auto-complete-1-3-1/ac-dict")
+(add-to-list 'ac-dictionary-directories "/home/zhangchao08/program_files/emacs-24-3/share/emacs/site-lisp/auto-complete-1-3-1/ac-dict")
 (ac-config-default)
 
 
@@ -418,3 +418,9 @@ Emacs buffer are those starting with “*”					.	"
 ;(set-face-background 'region "blue") ;; 区域背景色设为蓝色
 
 ;(set-face-attribute 'default nil :height 1200)
+(put 'narrow-to-region 'disabled nil)
+
+;;Emacs out, choosing one of tis random modes to obfuscate the current buffer, which can be used as a screensaver
+(require 'zone)
+(zone-when-idle 120)
+
